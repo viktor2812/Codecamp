@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Company name:</strong>
+  <%= @company.company_name %>
+</p>
+
+<p>
+  <strong>Sub company:</strong>
+  <%= @company.sub_company %>
+</p>
+
+<p>
+  <strong>Calendar schema:</strong>
+  <%= @company.calendar_schema %>
+</p>
+
+<p>
+  <strong>Payment schema:</strong>
+  <%= @company.payment_schema %>
+</p>
+
+<p>
+  <strong>Contact name:</strong>
+  <%= @company.contact_name %>
+</p>
+
+<p>
+  <strong>Contact email:</strong>
+  <%= @company.contact_email %>
+</p>
+
+<p>
+  <strong>Contact telephone:</strong>
+  <%= @company.contact_telephone %>
+</p>
+
+<%= link_to 'Edit', edit_company_path(@company) %> |
+<%= link_to 'Back', companies_path %>

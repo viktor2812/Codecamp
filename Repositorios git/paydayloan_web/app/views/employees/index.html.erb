@@ -1,0 +1,73 @@
+<p id="notice"><%= notice %></p>
+
+<div class="x_panel" style="height:600px;">
+  <div class="x_title">
+    <h2>Empleados</h2>
+    <ul class="nav navbar-right panel_toolbox">
+      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+        <ul class="dropdown-menu" role="menu">
+          <li>
+            <%= link_to 'Nuevo empleado', new_employee_path %>
+          </li>
+          <li>
+            <%= link_to 'Importar empleados', new_employee_path %>
+          </li>
+        </ul>
+      </li>
+      <li><a class="close-link"><i class="fa fa-close"></i></a>
+      </li>
+    </ul>
+    <div class="clearfix"></div>
+
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>CURP</th>
+        <th>Salario</th>
+        <th>Fecha ingreso</th>
+        <th>Ciclo de pago</th>
+        <th>Tarjeta</th>
+        <th>Empresa</th>
+        <th colspan="3"></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @employees.each do |employee| %>
+          <tr>
+            <td><%= employee.first_name %></td>
+            <td><%= employee.surname %></td>
+            <td><%= employee.curp %></td>
+            <td><%= employee.net_monthly_salary %></td>
+            <td><%= employee.admission_date %></td>
+            <td><%= employee.payment_cycle %></td>
+            <td><%= employee.fk_id_card %></td>
+            <td><%= employee.company ? employee.company.company_name : 'N/A' %></td>
+            <td><%= link_to 'Ver', employee %></td>
+            <td><%= link_to 'Eliminar', employee, method: :delete, data: { confirm: 'Esta seguro que desea eliminar el empleado?' } %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <%= will_paginate @employees %>
+    <br>
+
+
+    <h2>Importar empleados</h2>
+    <%= form_tag import_employees_path, multipart: true do %>
+        <%= file_field_tag :file, :class=>"form-control"  %>
+        <br>
+        <%= submit_tag "Import", :class=>"btn btn-default" %>
+    <% end %>
+
+
+    <br>
+
+  </div>
+</div>
+

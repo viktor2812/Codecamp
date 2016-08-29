@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <strong>Nmero de Tarjeta:</strong>
+  <%= @card.cardNumber %>
+</p>
+
+<p>
+  <strong>Fecha de Expedición:</strong>
+  <%= @card.expDate %>
+</p>
+
+<p>
+  <strong>Emisor:</strong>
+  <%= @card.emisor %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @card.statuss %>
+</p>
+
+
+<%= link_to 'Edit', edit_card_path(@card) %> |
+<%= link_to 'Back', cards_path %>

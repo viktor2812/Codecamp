@@ -1,0 +1,37 @@
+<%- model_class = Loan -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:employee_id) %>:</strong></dt>
+  <dd><%= @loan.employee_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:net_salary) %>:</strong></dt>
+  <dd><%= @loan.net_salary %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:interest) %>:</strong></dt>
+  <dd><%= @loan.interest %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:max_credit) %>:</strong></dt>
+  <dd><%= @loan.max_credit %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:period) %>:</strong></dt>
+  <dd><%= @loan.period %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:capital_requisition) %>:</strong></dt>
+  <dd><%= @loan.capital_requisition %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:date_requisition) %>:</strong></dt>
+  <dd><%= @loan.date_requisition %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:capital_to_pay) %>:</strong></dt>
+  <dd><%= @loan.capital_to_pay %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:balance) %>:</strong></dt>
+  <dd><%= @loan.balance %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
+  <dd><%= @loan.status %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              loans_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_loan_path(@loan), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              loan_path(@loan),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

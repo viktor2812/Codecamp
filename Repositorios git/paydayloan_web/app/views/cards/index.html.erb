@@ -1,0 +1,67 @@
+<p id="notice"><%= notice %></p>
+
+<div class="x_panel" style="height:600px;">
+  <div class="x_title">
+    <h2>Empleados</h2>
+    <ul class="nav navbar-right panel_toolbox">
+      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+        <ul class="dropdown-menu" role="menu">
+          <li>
+            <%= link_to 'Nuevo Tarjeta', new_card_path %>
+          </li>
+          <li>
+            <%= link_to 'Consultar Tarjetas', new_card_path %>
+          </li>
+        </ul>
+      </li>
+      <li><a class="close-link"><i class="fa fa-close"></i></a>
+      </li>
+    </ul>
+    <div class="clearfix"></div>
+
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>Numero de Tarjeta</th>
+        <th>Fecha de Expedición </th>
+        <th>Emisor</th>
+        <th>Status</th>
+        <th colspan="3"></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @card.each do |tarjeta| %>
+          <tr>
+            <td><%= tarjeta.cardNumber %></td>
+            <td><%= tarjeta.expDate %></td>
+            <td><%= tarjeta.emisor %></td>
+            <td><%= tarjeta.statuss %></td>
+            <td><%= link_to 'Ver', tarjeta %></td>
+            
+            <td ><%= link_to 'Eliminar', tarjeta, method: :delete, data: { confirm:  'Esta seguro que desea eliminar la tarjeta?'  }  %> </td>
+
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <%= will_paginate @card %>
+    <br>
+    <br>
+    <h2>Importar Tarjetas</h2>
+
+    <%= form_tag import_cards_path, multipart: true do %>
+        <%= file_field_tag :file, :class=>"form-control"  %>
+        <br>
+        
+        <%= submit_tag "Import", :class=>"btn btn-default" %>
+    <% end %>
+
+
+
+  </div>
+</div>
+

@@ -1,0 +1,101 @@
+<%= form_for(@company) do |f| %>
+    
+
+    <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+    <div class="control-group<%= @company.errors[:company_name].any? ? " error" : "" %>">
+      <%= f.label :company_name, 'Empresa' %><br>
+      <div class="controls">
+      <%= f.text_field :company_name, :class=>"form-control" %>
+       <span class="help-inline">    
+          <%= @company.errors[:company_name].any? ? @company.errors[:company_name].to_s[/\w([^"]*)/] : "" %></span>
+        </div>
+    </div>
+    </div>
+
+
+    <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+    <div class="control-group<%= @company.errors[:sub_company].any? ? " error" : "" %>">
+      <%= f.label :sub_company, 'Sub-empresa' %><br>
+      <div class="controls">
+      <%= f.text_field :sub_company, :class=>"form-control" %>
+      <span class="help-inline">    
+          <%= @company.errors[:sub_company].any? ? @company.errors[:sub_company].to_s[/\w([^"]*)/] : "" %></span>
+        </div>
+    </div>
+    </div>
+
+
+
+
+    <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+    <div class="control-group<%= @company.errors[:calendar_schema].any? ? " error" : "" %>">
+      <%= f.label :calendar_schema, 'Calendario pagos' %><br>
+<div class="controls">
+      <%= f.number_field :calendar_schema, :class=>"form-control" %>
+ <span class="help-inline">    
+          <%= @company.errors[:calendar_schema].any? ? @company.errors[:calendar_schema].to_s[/\w([^"]*)/] : "" %></span>
+        </div>
+    </div>
+    </div>
+
+
+
+
+
+    <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+    <div class="control-group<%= @company.errors[:payment_schema].any? ? " error" : "" %>">
+      <%= f.label :payment_schema, 'Esquema pagos' %><br>
+<div class="controls">
+      <%=f.select :payment_schema, [['Semanal', "Semanal"], ['Catorcenal', "Catorcenal"], ['Quincenal', "Quincenal"], ['Mensual', "Mensual"]], {}, { :class=>"form-control"}%>
+ <span class="help-inline">    
+          <%= @company.errors[:payment_schema].any? ? @company.errors[:payment_schema].to_s[/\w([^"]*)/] : "" %></span>
+        </div>
+    </div>
+    </div>
+
+
+    <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+    <div class="control-group<%= @company.errors[:contact_name].any? ? " error" : "" %>">
+      <%= f.label :contact_name, 'Nombre del contacto' %><br>
+<div class="controls">
+      <%= f.text_field :contact_name, :class=>"form-control" %>
+ <span class="help-inline">    
+          <%= @company.errors[:contact_name].any? ? @company.errors[:contact_name].to_s[/\w([^"]*)/] : "" %></span>
+        </div>
+    </div>
+    </div>
+
+
+
+    <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+    <div class="control-group<%= @company.errors[:contact_email].any? ? " error" : "" %>">
+      <%= f.label :contact_email, 'Email del contacto' %><br>
+<div class="controls">
+      <%= f.text_field :contact_email, :class=>"form-control" %>
+ <span class="help-inline">    
+          <%= @company.errors[:contact_email].any? ? @company.errors[:contact_email].to_s[/\w([^"]*)/] : "" %></span>
+        </div>
+    </div>
+    </div>
+
+
+
+    <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+    <div class="control-group<%= @company.errors[:contact_telephone].any? ? " error" : "" %>">    
+      <%= f.label :contact_telephone, 'Teléfono del contacto' %><br>
+<div class="controls">      
+      <%= f.text_field :contact_telephone, :class=>"form-control" %>
+ <span class="help-inline">    
+          <%= @company.errors[:contact_telephone].any? ? @company.errors[:contact_telephone].to_s[/\w([^"]*)/] : "" %></span>
+        </div>
+    </div>      
+    </div>
+
+
+
+    <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+      <br/>
+      <%= f.submit 'Guardar', :class=>"btn btn-success" %>
+    </div>
+
+<% end %>

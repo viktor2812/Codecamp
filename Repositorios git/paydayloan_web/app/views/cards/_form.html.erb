@@ -1,0 +1,53 @@
+<%= form_for(@card) do |f| %>
+  
+  <br>
+  
+
+  <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+    <div class="control-group<%= @card.errors[:cardNumber].any? ? " error" : "" %>">
+      <%= f.label :cardNumber, 'Numero de Trajeta' %>
+      <br>
+        <div class="controls">
+          <%= f.text_field :cardNumber, :class=>"form-control" %>
+          <span class="help-inline">    
+          <%= @card.errors[:cardNumber].any? ? @card.errors[:cardNumber].to_s[/\w([^"]*)/] : "" %></span>
+        </div>
+    </div>
+      <br>
+    <%= f.label :expDate, 'Fecha de Expedición' %><br>
+    <%= f.date_select :expDate, :class=>"form-control" %>    
+  </div>
+
+   
+    <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+
+    <div class="control-group<%= @card.errors[:emisor].any? ? " error" : "" %>">
+    <%= f.label :emisor,:class => 'control-label' %><br>
+    <div class="controls">
+    <%= f.text_field :emisor, :class=>"form-control" %>
+    <span class="help-inline">
+      <%= @card.errors[:emisor].any? ? @card.errors[:emisor].to_s[/\w([^"]*)/] : "" %></span>
+    </div>
+    </div>
+    </div>
+
+    <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+
+    <div class="control-group<%= @card.errors[:statuss].any? ? " error" : "" %>">
+    <%= f.label :status,:class => 'control-label' %><br>
+    <div class="controls">
+    <%= f.number_field :statuss, :class=>"form-control" %>
+    <span class="help-inline">
+      <%= @card.errors[:statuss].any? ? @card.errors[:statuss].to_s[/\w([^"]*)/] : "" %></span>
+    </div>
+    </div>
+    </div>
+    
+    <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+    <br><br>
+    <%= f.submit 'Guardar', :class=>"btn btn-success" %>
+    </div>
+  
+<% end %>
+
+

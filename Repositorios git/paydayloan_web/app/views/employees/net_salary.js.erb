@@ -1,0 +1,2 @@
+$("#loan_net_salary").val("<%=@employee.net_monthly_salary.to_i%>")
+$("#loan_max_credit").val("<%=((@employee.net_monthly_salary.to_f)*(30*@employee.net_monthly_salary.to_f/100)).round(2)%>")

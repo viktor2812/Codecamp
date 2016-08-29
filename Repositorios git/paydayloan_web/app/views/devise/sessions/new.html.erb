@@ -1,0 +1,97 @@
+<%# views/devise/sessions/new.html.erb %>
+
+<div class="">
+  <a class="hiddenanchor" id="toregister"></a>
+  <a class="hiddenanchor" id="tologin"></a>
+
+  <div id="wrapper">
+    <div id="login" class="animate form">
+      <section class="login_content">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <h1>Bienvenido</h1>
+          <div>
+            <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder =>"Username",  :required => ""  %>
+
+          </div>
+          <div>
+
+            <%= f.password_field :password, autofocus: true, :class => "form-control", :placeholder =>"Password",  :required => ""  %>
+
+          </div>
+
+
+            <% if devise_mapping.rememberable? -%>
+                <div class="checkbox-inline">
+                  <%= f.check_box :remember_me %>
+                  <%= f.label :remember_me %>
+                </div>
+            <% end -%>
+
+
+            <div>
+
+            <%= f.submit "Inicia Sesion", :class => "btn btn-default submit"%>
+
+            <a class="reset_pass" href="#">Olvidaste tu password?</a>
+          </div>
+          <div class="clearfix"></div>
+          <div class="separator">
+
+            <p class="change_link">New to site?
+              <a href="#toregister" class="to_register"> Create Account </a>
+            </p>
+            <div class="clearfix"></div>
+            <br />
+            <div>
+              <h1><i class="fa fa-spinner" style="font-size: 26px;"></i> PayDayLoan</h1>
+
+              <p>©2016 Todos los Derechos Reservados OpenFlow.</p>
+              <p class="change_link">
+                <a href="#toregister" class="to_register"> Terminos y condiciones </a>
+              </p>
+            </div>
+          </div>
+        <% end %>
+        <!-- form -->
+      </section>
+      <!-- content -->
+    </div>
+    <div id="register" class="animate form">
+      <section class="login_content">
+        <form>
+          <h1>Crea una cuenta</h1>
+          <div>
+            <input type="text" class="form-control" placeholder="Username" required="" />
+          </div>
+          <div>
+            <input type="email" class="form-control" placeholder="Email" required="" />
+          </div>
+          <div>
+            <input type="password" class="form-control" placeholder="Password" required="" />
+          </div>
+          <div>
+            <a class="btn btn-default submit" href="index.html">Enviar</a>
+          </div>
+          <div class="clearfix"></div>
+          <div class="separator">
+
+            <p class="change_link">Ya eres usuario ?
+              <a href="#tologin" class="to_register"> Inicia Sesion </a>
+            </p>
+            <div class="clearfix"></div>
+            <br />
+            <div>
+              <h1><i class="fa fa-spinner" style="font-size: 26px;"></i> PayDayLoan</h1>
+
+              <p>©2016 Todos los derechos reservados. Loan admin panel by <a href="https://openflow.mx">OpenFlow</a></p>
+              <a href="https://openflow.mx">Terminos y condiciones</a> 
+            </div>
+          </div>
+        </form>
+        <!-- form -->
+      </section>
+      <!-- content -->
+    </div>
+  </div>
+</div>
+

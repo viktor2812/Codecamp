@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<div class="x_panel" style="height:600px;">
+  <div class="x_title">
+    <h2>Empresas</h2>
+    <ul class="nav navbar-right panel_toolbox">
+      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="#">Settings 1</a>
+          </li>
+          <li><a href="#">Settings 2</a>
+          </li>
+        </ul>
+      </li>
+      <li><a class="close-link"><i class="fa fa-close"></i></a>
+      </li>
+    </ul>
+    <div class="clearfix"></div>
+
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>Empresa</th>
+        <th>Sub - empresa</th>
+        <th>Calendar schema</th>
+        <th>Payment schema</th>
+        <th>Contact name</th>
+        <th>Contact email</th>
+        <th>Contact telephone</th>
+        <th colspan="3"></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @companies.each do |company| %>
+          <tr>
+            <td><%= company.company_name %></td>
+            <td><%= company.sub_company %></td>
+            <td><%= company.calendar_schema %></td>
+            <td><%= company.payment_schema %></td>
+            <td><%= company.contact_name %></td>
+            <td><%= company.contact_email %></td>
+            <td><%= company.contact_telephone %></td>
+            <td><%= link_to 'Ver', company %></td>
+            <td><%= link_to 'Eliminar', company, method: :delete, data: { confirm: '¿Estas seguro que deseas eliminar la empresa?' } %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <%= will_paginate @companies %>
+  </div>
+</div>
+
+
+<br>
+
+<%= link_to 'New Company', new_company_path, :class=>"btn btn-primary" %>
